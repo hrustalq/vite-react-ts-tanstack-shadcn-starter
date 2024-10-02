@@ -2,25 +2,22 @@ import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 
 import { RouterProvider } from '@tanstack/react-router'
-import { router } from './router'
-
-import {
-  QueryClient,
-  QueryClientProvider,
-} from '@tanstack/react-query'
+import { router } from '@/router'
 
 import "./globals.css"
-
-const queryClient = new QueryClient()
+import { ThemeProvider } from '@/prodivers/theme.prodiver'
+import { QueryProvider } from '@/prodivers/query.provider'
 
 const rootElement = document.getElementById('root')!
 if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement)
   root.render(
     <StrictMode>
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-      </QueryClientProvider>
+      <QueryProvider>
+        <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+          <RouterProvider router={router} />
+        </ThemeProvider>
+      </QueryProvider>
     </StrictMode>,
   )
 }
