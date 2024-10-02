@@ -4,10 +4,10 @@ import {
   createRouter,
   createRoute,
   createRootRoute,
-} from '@tanstack/react-router'
-import { TanStackRouterDevtools } from '@tanstack/router-devtools'
-import { Index } from './routes/index'
-import { About } from './routes/about'
+} from "@tanstack/react-router";
+import { TanStackRouterDevtools } from "@tanstack/router-devtools";
+import { Index } from "./routes/index";
+import { About } from "./routes/about";
 
 export const rootRoute = createRootRoute({
   component: () => (
@@ -15,7 +15,7 @@ export const rootRoute = createRootRoute({
       <div className="p-2 flex gap-2">
         <Link to="/" className="[&.active]:font-bold">
           Home
-        </Link>{' '}
+        </Link>{" "}
         <Link to="/about" className="[&.active]:font-bold">
           About
         </Link>
@@ -25,26 +25,26 @@ export const rootRoute = createRootRoute({
       <TanStackRouterDevtools />
     </>
   ),
-})
+});
 
 export const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/',
-  component: Index
-})
+  path: "/",
+  component: Index,
+});
 
 export const aboutRoute = createRoute({
   getParentRoute: () => rootRoute,
-  path: '/about',
+  path: "/about",
   component: About,
-})
+});
 
-export const routeTree = rootRoute.addChildren([indexRoute, aboutRoute])
+export const routeTree = rootRoute.addChildren([indexRoute, aboutRoute]);
 
-export const router = createRouter({ routeTree })
+export const router = createRouter({ routeTree });
 
-declare module '@tanstack/react-router' {
+declare module "@tanstack/react-router" {
   interface Register {
-    router: typeof router
+    router: typeof router;
   }
 }

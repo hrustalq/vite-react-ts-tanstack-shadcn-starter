@@ -1,30 +1,36 @@
-import React from "react"
-import { Controller, ControllerProps, FieldPath, FieldValues, FormProvider } from "react-hook-form"
+import React from "react";
+import {
+  Controller,
+  ControllerProps,
+  FieldPath,
+  FieldValues,
+  FormProvider,
+} from "react-hook-form";
 
-export const Form = FormProvider
+export const Form = FormProvider;
 
 export type FormItemContextValue = {
-  id: string
-}
+  id: string;
+};
 
 export const FormFieldContext = React.createContext<FormFieldContextValue>(
-  {} as FormFieldContextValue
-)
+  {} as FormFieldContextValue,
+);
 
 export const FormItemContext = React.createContext<FormItemContextValue>(
-  {} as FormItemContextValue
-)
+  {} as FormItemContextValue,
+);
 
 export type FormFieldContextValue<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 > = {
-  name: TName
-}
+  name: TName;
+};
 
 export const FormField = <
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 >({
   ...props
 }: ControllerProps<TFieldValues, TName>) => {
@@ -32,5 +38,5 @@ export const FormField = <
     <FormFieldContext.Provider value={{ name: props.name }}>
       <Controller {...props} />
     </FormFieldContext.Provider>
-  )
-}
+  );
+};

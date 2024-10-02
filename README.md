@@ -1,4 +1,4 @@
-# React + TypeScript + Vite
+# React + TypeScript + Vite SWC + Shadcn/UI + TailwindCSS + Tanstack Query + Tanstack Router starter kit
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

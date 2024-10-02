@@ -1,16 +1,16 @@
-import { StrictMode } from 'react'
-import ReactDOM from 'react-dom/client'
+import { StrictMode } from "react";
+import ReactDOM from "react-dom/client";
 
-import { RouterProvider } from '@tanstack/react-router'
-import { router } from '@/router'
+import { RouterProvider } from "@tanstack/react-router";
+import { router } from "@/router";
 
-import "./globals.css"
-import { ThemeProvider } from '@/prodivers/theme.prodiver'
-import { QueryProvider } from '@/prodivers/query.provider'
+import "./globals.css";
+import { ThemeProvider } from "@/prodivers/theme.prodiver";
+import { QueryProvider } from "@/prodivers/query.provider";
 
-const rootElement = document.getElementById('root')!
+const rootElement = document.getElementById("root")!;
 if (!rootElement.innerHTML) {
-  const root = ReactDOM.createRoot(rootElement)
+  const root = ReactDOM.createRoot(rootElement);
   root.render(
     <StrictMode>
       <QueryProvider>
@@ -19,5 +19,5 @@ if (!rootElement.innerHTML) {
         </ThemeProvider>
       </QueryProvider>
     </StrictMode>,
-  )
+  );
 }
